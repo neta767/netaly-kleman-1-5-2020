@@ -1,0 +1,11 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <span class="space-class">Weather</span>
+        <nav mat-tab-nav-bar>
+            <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.link" routerLinkActive
+                #rla="routerLinkActive" [active]="rla.isActive">{{link.label}}
+            </a>
+        </nav>
+        <mat-slide-toggle [checked]="isDarkTheme" (change)="toggleDarkTheme($event.checked)"></mat-slide-toggle>
+    </mat-toolbar-row>
+</mat-toolbar>

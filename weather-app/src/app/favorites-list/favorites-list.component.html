@@ -1,0 +1,11 @@
+<div class="container">
+    <div *ngFor="let city of fav">
+        <a [routerLink]="['/home', city.id, city.city]">
+            <mat-card class="card-class">
+                <p class="city-class">{{city.city}}</p>
+                <p class="text-class">{{city.temCelsius}}°</p>
+                <p class="text-class">{{city.weatherText}}</p>
+            </mat-card>
+        </a>
+    </div>
+</div>

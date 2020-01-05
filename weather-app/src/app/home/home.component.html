@@ -1,0 +1,53 @@
+<div class="container">
+
+    <form [formGroup]="searchForm">
+        <mat-form-field class="form-container">
+            <input matInput placeholder="City" #citySearch formControlName="citySearch">
+            <button mat-icon-button matSuffix (click)="searchWeatherByName(citySearch.value)">
+                <mat-icon>search</mat-icon>
+            </button>
+        </mat-form-field>
+    </form>
+
+    <div *ngIf="!hasError" class="body-container">
+        <div class="body">
+            <div class="current-weather-container">
+                <div>
+                    <span class="city-class">{{currentWeather.city}}</span>
+                    <span *ngIf="celsius" class="degree-class">{{currentWeather.temCelsius}}°</span>
+                    <span *ngIf="!celsius" class="degree-class">{{currentWeather.temFahrenheit}}°</span>
+                </div>
+                <div class="text-container">
+                    <span>{{currentWeather.weatherText}}</span>
+                </div>
+            </div>
+            <div class="function-container">
+                <div class="favorite-container">
+                    <button mat-icon-button matSuffix (click)="updateFavoritesLise()">
+                        <mat-icon *ngIf="!inFavList" matTooltip="Add to favorites">favorite</mat-icon>
+                        <mat-icon *ngIf="inFavList" matTooltip="Remove from favorites" color="warn">favorite</mat-icon>
+                    </button>
+                </div>
+                <mat-button-toggle-group #group="matButtonToggleGroup" value="c"
+                    (change)="onUnitTemChange(group.value)">
+                    <mat-button-toggle value="c">
+                        C°
+                    </mat-button-toggle>
+                    <mat-button-toggle value="f">
+                        F°
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+        </div>
+
+        <div class="week-weather-class">
+            <div *ngFor="let day of weekForecast">
+                <mat-card>
+                    <p class="day-class">{{day.day}}</p>
+                    <p *ngIf="celsius" class="tem-class">{{day.temCelsius}}°</p>
+                    <p *ngIf="!celsius" class="tem-class">{{day.temFahrenheit}}°</p>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

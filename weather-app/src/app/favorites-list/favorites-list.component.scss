@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    flex-wrap: wrap;
+}
+
+a{
+    text-decoration: none;
+}
+
+mat-card {
+    margin: 0.5em;
+}
+
+.city-class{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+   }
+
+.text-class{
+ font-size: 20px;
+ text-align: center;
+}

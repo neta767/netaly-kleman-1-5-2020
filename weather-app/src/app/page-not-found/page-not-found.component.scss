@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+     min-height: 100vh;
+}
+
+.text{
+    display: flex;
+    flex-grow: 1;
+    color: gray;
+    font-size: 35px;
+  font-weight: bold;
+  justify-content: center;
+    margin-top: 3em;
+}
